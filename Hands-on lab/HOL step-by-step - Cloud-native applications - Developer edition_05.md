@@ -144,7 +144,7 @@ In this task, you will browse to the web application for testing.
 
    > EXAMPLE: ```http://13.68.113.176:3000```
 
-   ![In the Virtual Machine blade, Overview is selected on the left and Public IP address 52.174.141.11 is highlighted on the right.](local/ex1tsk2-step4.png?raw=true "VM Public IP Address")
+   ![In the Virtual Machine blade, Overview is selected on the left and Public IP address 52.174.141.11 is highlighted on the right.](media/ex1tsk2-step4.png?raw=true "VM Public IP Address")
 
 1. Select the Speakers and Sessions links in the header. You will see the pages display the HTML version of the JSON content you curled previously.
 
@@ -168,7 +168,6 @@ In this task, you will create a new Dockerfile that will be used to run the API 
 
     ```bash
     cd ~/Fabmedical/content-api
-    wget http://bit.ly/hol-Dockerfile -O Dockerfile
     ll
     
     ```
@@ -280,16 +279,7 @@ In this task, you will create Docker images for the application --- one for the 
 
    ![The node image (node) and your container image (content-api) are visible in this screenshot of the console window.](media/image59.png "List Docker images")
 
-1. Commit and push the new Dockerfile before continuing.
 
-    ```bash
-    git add .
-    git commit -m "Added Dockerfile"
-    git push
-    
-    ```
-
-   Enter credentials if prompted.
 
 1. Navigate to the content-web folder again and list the files. Note that this folder already has a Dockerfile. View the Dockerfile contents -- which are similar to the file you created previously in the API folder
 
