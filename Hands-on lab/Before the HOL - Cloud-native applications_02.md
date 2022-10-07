@@ -8,19 +8,19 @@ You should follow all of the steps provided in this section _before_ taking part
 
 1. In the **Lab VM** provided to you on the left side, double click on the **Azure Portal** browser shortcut on the desktop.
 
-    ![Shell](https://github.com/CloudLabs-MCW/MCW-Cloud-native-applications/blob/fix/Hands-on%20lab/media/azureportal.png?raw=true "Cloud Shell Window")
+    ![Shell](media/azureportal.png "Cloud Shell Window")
 
 1. Click on **Get Started** on edge browser.
 
-   ![Browser](https://github.com/CloudLabs-MCW/MCW-Cloud-native-applications/blob/fix/Hands-on%20lab/media/getstarted.png?raw=true)
+   ![Browser](media/getstarted.png)
 
 1. Now, click on the cross icon to close **Let's set up your new tab page**.
 
-   ![Close](https://github.com/CloudLabs-MCW/MCW-Cloud-native-applications/blob/fix/Hands-on%20lab/media/closeletus.png?raw=true)
+   ![Close](media/closeletus.png?raw=true)
 
 1. Close the current tab by clicking on close tab icon and then **Sign in Microsoft Azure** tab will open.
 
-   ![close](https://github.com/CloudLabs-MCW/MCW-Cloud-native-applications/blob/fix/Hands-on%20lab/media/closeedgetab.png?raw=true)
+   ![close](media/closeedgetab.png?raw=true)
  
 1. On **Sign in to Microsoft Azure** tab, **Sign in** with following Azure credentials.
 
@@ -52,11 +52,7 @@ In this section, you validate that you can connect to the new Build Agent VM usi
 
 1. When asked to confirm if you want to continue connecting, type `yes`.
 
-1. When asked for the password, enter **Build Agent VM Password** given below.
-
-    ```pwd
-    Password.1!!
-    ```
+1. When asked for the password, enter **Build Agent VM Password** from the **Environment Details** tab.
 
 1. SSH connects to the VM and displays a command prompt such as the following. Keep this shell window open throughout this workshop:
 
@@ -98,8 +94,6 @@ In this task, you will use `git` to copy the lab content to your VM and copy the
      cp ~/MCW-Cloud-native-applications/Hands-on\ lab/lab-files/developer/* . -r
      ll
      ```
-
-   ![The  shell icon is highlighted on the menu bar.](https://github.com/CloudLabs-MCW/MCW-Cloud-native-applications/blob/fix/Hands-on%20lab/media/clonefiles.png?raw=true "Shell")
 
 1. You'll see the listing includes three folders, one for the web site, another for the content API and one to initialize API data:
 

@@ -33,7 +33,7 @@ The purpose of this task is to make sure you can run the application successfull
     
     ```
   
-   ![This screenshot of the console window shows the output from connecting to mongo.](https://github.com/CloudLabs-MCW/MCW-Cloud-native-applications/blob/fix/Hands-on%20lab/local/ex1-stp6.png?raw=true "Connect to mongodb")
+   ![This screenshot of the console window shows the output from connecting to mongo.](local/ex1-stp6.png?raw=true "Connect to mongodb")
 
    ![This screenshot of the console window shows output from running the database initialization.](media/Ex1-Task1.7.png "Run nodejs server.js")
 
@@ -80,6 +80,12 @@ The purpose of this task is to make sure you can run the application successfull
     >Note: Wait for the for `npm install` command to complete before proceeding with `ng build`
 
     ```bash
+    curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+    sudo apt-get update -y && sudo apt-get install -y docker-ce nodejs mongodb-clients
+    sudo apt-get upgrade -y
+
+    sudo npm install -g @angular/cli
+
     cd ../content-web
     npm install
     
@@ -121,7 +127,7 @@ The purpose of this task is to make sure you can run the application successfull
     
     ```
 
-    ![Edit the app.js file in vim in the build machine to update the API URL.](https://github.com/CloudLabs-MCW/MCW-Cloud-native-applications/blob/fix/Hands-on%20lab/local/ex1tsk1-step17.png?raw=true "Edit the app.js")
+    ![Edit the app.js file in vim in the build machine to update the API URL.](local/ex1tsk1-step17.png?raw=true "Edit the app.js")
 
    > **Note**:  If you get no such file or directory error, run the below command and retry the command /n
    "ng Build"
@@ -138,11 +144,11 @@ In this task, you will browse to the web application for testing.
 
    > EXAMPLE: ```http://13.68.113.176:3000```
 
-   ![In the Virtual Machine blade, Overview is selected on the left and Public IP address 52.174.141.11 is highlighted on the right.](https://github.com/CloudLabs-MCW/MCW-Cloud-native-applications/blob/fix/Hands-on%20lab/local/ex1tsk2-step4.png?raw=true "VM Public IP Address")
+   ![In the Virtual Machine blade, Overview is selected on the left and Public IP address 52.174.141.11 is highlighted on the right.](media/ex1tsk2-step4.png?raw=true "VM Public IP Address")
 
 1. Select the Speakers and Sessions links in the header. You will see the pages display the HTML version of the JSON content you curled previously.
 
-   ![In the Virtual Machine blade, Overview is selected on the left and Public IP address 52.174.141.11 is highlighted on the right.](https://github.com/CloudLabs-MCW/MCW-Cloud-native-applications/blob/fix/Hands-on%20lab/local/ex1tsk2-step5.png?raw=true "VM Public IP Address")
+   ![In the Virtual Machine blade, Overview is selected on the left and Public IP address 52.174.141.11 is highlighted on the right.](local/ex1tsk2-step5.png?raw=true "VM Public IP Address")
 
 1. Once you have verified the application is accessible through a browser, go to your SSH window and stop the running node processes.
 
@@ -162,7 +168,6 @@ In this task, you will create a new Dockerfile that will be used to run the API 
 
     ```bash
     cd ~/Fabmedical/content-api
-    wget http://bit.ly/hol-Dockerfile -O Dockerfile
     ll
     
     ```
@@ -246,7 +251,7 @@ In this task, you will create Docker images for the application --- one for the 
     
     ```
 
-   ![The node image (node) and your container image (content-api) are visible in this screenshot of the console window.](https://github.com/CloudLabs-MCW/MCW-Cloud-native-applications/blob/fix/Hands-on%20lab/local/ex1tsk4-step1.png?raw=true "List Docker images")
+   ![The node image (node) and your container image (content-api) are visible in this screenshot of the console window.](local/ex1tsk4-step1.png?raw=true "List Docker images")
 
 1. From the content-api folder containing the API application files and the new Dockerfile you created, type the following command to create a Docker image for the API application. This command does the following:
 
@@ -261,7 +266,7 @@ In this task, you will create Docker images for the application --- one for the 
    
     ```
 
-   ![The node image (node) and your container image (content-api) are visible in this screenshot of the console window.](https://github.com/CloudLabs-MCW/MCW-Cloud-native-applications/blob/fix/Hands-on%20lab/local/ex1tsk4-step2.png?raw=true "List Docker images")
+   ![The node image (node) and your container image (content-api) are visible in this screenshot of the console window.](local/ex1tsk4-step2.png?raw=true "List Docker images")
 
 1. Once the image is successfully built, run the Docker images listing command again. You will see several new images: the node images and your container image.
 
@@ -274,16 +279,7 @@ In this task, you will create Docker images for the application --- one for the 
 
    ![The node image (node) and your container image (content-api) are visible in this screenshot of the console window.](media/image59.png "List Docker images")
 
-1. Commit and push the new Dockerfile before continuing.
 
-    ```bash
-    git add .
-    git commit -m "Added Dockerfile"
-    git push
-    
-    ```
-
-   Enter credentials if prompted.
 
 1. Navigate to the content-web folder again and list the files. Note that this folder already has a Dockerfile. View the Dockerfile contents -- which are similar to the file you created previously in the API folder
 
@@ -329,7 +325,7 @@ The web application container will be calling endpoints exposed by the API appli
     
     ```
 
-   ![In this screenshot of the console window, docker container ls has again been typed and run at the command prompt. 0.0.0.0:32768->3000/tcp is highlighted under Ports.](https://github.com/CloudLabs-MCW/MCW-Cloud-native-applications/blob/fix/Hands-on%20lab/local/ex1task5-step3.png?raw=true "List Docker containers")
+   ![In this screenshot of the console window, docker container ls has again been typed and run at the command prompt. 0.0.0.0:32768->3000/tcp is highlighted under Ports.](local/ex1task5-step3.png?raw=true "List Docker containers")
 
 1. Enter the command to show running containers. You will observe that the `api` container is in the list. Use the docker logs command to see that the API application has connected to mongodb.
 
@@ -361,7 +357,7 @@ In this task, you will configure the `web` container to communicate with the API
     
     ```
   
-   ![In this screenshot of Dockerfile, the CONTENT_API_URL code appears above the next Dockerfile line, which reads EXPOSE 3000.](https://github.com/CloudLabs-MCW/MCW-Cloud-native-applications/blob/fix/Hands-on%20lab/local/ex1task6-step4.png?raw=true "Set ENV variable")
+   ![In this screenshot of Dockerfile, the CONTENT_API_URL code appears above the next Dockerfile line, which reads EXPOSE 3000.](local/ex1task6-step4.png?raw=true "Set ENV variable")
   
 1. Review the Dockerfile.
 
@@ -382,7 +378,7 @@ In this task, you will configure the `web` container to communicate with the API
     
     ```
 
-    ![In this screenshot of Dockerfile, the CONTENT_API_URL code appears above the next Dockerfile line, which reads EXPOSE 3000.](https://github.com/CloudLabs-MCW/MCW-Cloud-native-applications/blob/fix/Hands-on%20lab/local/ex1task6-step6.png?raw=true "Set ENV variable")
+    ![In this screenshot of Dockerfile, the CONTENT_API_URL code appears above the next Dockerfile line, which reads EXPOSE 3000.](local/ex1task6-step6.png?raw=true "Set ENV variable")
 
 1. Build the web application Docker image using the same command as you did previously. Once done, create and start the image passing the correct URI to the API container as an environment variable. This variable will address the API application using its container name over the Docker network you created. After running the container, check to see the container is running and note the dynamic port assignment for the next step. Since the VM only exposes a limited port range we wil be using using port `3000` using the **-p** switch, on the run command, to test in the browser
 
@@ -393,7 +389,7 @@ In this task, you will configure the `web` container to communicate with the API
     
     ```
 
-   ![In this screenshot of Dockerfile, the CONTENT_API_URL code appears above the next Dockerfile line, which reads EXPOSE 3000.](https://github.com/CloudLabs-MCW/MCW-Cloud-native-applications/blob/fix/Hands-on%20lab/local/ex1task6-step9.png?raw=true "Set ENV variable")
+   ![In this screenshot of Dockerfile, the CONTENT_API_URL code appears above the next Dockerfile line, which reads EXPOSE 3000.](local/ex1task6-step9.png?raw=true "Set ENV variable")
 
 1. You can now use a web browser to navigate to the website and successfully view the application at port `3000`. Replace `[BUILDAGENTIP]` with the **IP address** you used previously.
 
@@ -419,19 +415,19 @@ In this task, you will push images to your ACR account, version images with tagg
 
 1. In the Azure Portal `(https://portal.azure.com/)`, under navigate select **Resource groups** and click on **fabmedical-{DeploymentID}** resource group. Next, in the resource group page select Azure container registry
 
-   ![This is a screenshot of the selecting resource group.](https://github.com/CloudLabs-MCW/MCW-Cloud-native-applications/blob/fix/Hands-on%20lab/media/resourcegroup.png?raw=true "SSH Window")
+   ![This is a screenshot of the selecting resource group.](media/resourcegroup.png?raw=true "SSH Window")
 
-   ![This is a screenshot of acr.](https://github.com/CloudLabs-MCW/MCW-Cloud-native-applications/blob/fix/Hands-on%20lab/media/acr.png?raw=true "SSH Window")
+   ![This is a screenshot of acr.](media/acr.png?raw=true "SSH Window")
 
 1. Select **Access keys** under **Settings** on the left-hand menu.
 
-   ![In this screenshot of the left-hand menu, Access keys is highlighted below Settings.](https://github.com/CloudLabs-MCW/MCW-Cloud-native-applications/blob/fix/Hands-on%20lab/local/ex1task7-step2.png?raw=true "Access keys")
+   ![In this screenshot of the left-hand menu, Access keys is highlighted below Settings.](local/ex1task7-step2.png?raw=true "Access keys")
 
 1. The Access keys blade displays the Login server, username, and password that will be required for the next step. Make note of this values, you will be using it in the next part of lab
 
    > **Note**: If the username and password do not appear, select Enable on the Admin user option.
 
-   ![This is a screenshot of acr.](https://github.com/CloudLabs-MCW/MCW-Cloud-native-applications/blob/fix/Hands-on%20lab/local/ex1task7-step3.png?raw=true "SSH Window")
+   ![This is a screenshot of acr.](local/ex1task7-step3.png?raw=true "SSH Window")
 
 1. From the SSH window connected to your build VM, login to your ACR account by typing the following command. Follow the instructions to complete the login.
 
@@ -520,7 +516,7 @@ In this task, you will use features within azure registry to tag and version dep
 
 1. Refresh one of the repositories to see the two versions of the image now appear.
 
-    ![In this screenshot, content-api is selected under Repositories, and the Tags blade appears on the right. In the Tags blade, latest and v1 appear under Tags.](https://github.com/CloudLabs-MCW/MCW-Cloud-native-applications/blob/fix/Hands-on%20lab/local/ex1task7-step12.png?raw=true "View two versions of image")
+    ![In this screenshot, content-api is selected under Repositories, and the Tags blade appears on the right. In the Tags blade, latest and v1 appear under Tags.](local/ex1task7-step12.png?raw=true "View two versions of image")
 
 1. Run the following commands to pull an image from the repository. Note that the default behavior is to pull images tagged with `:latest`. You can pull a specific version using the version tag. Also, note that since the images already exist on the build agent, nothing is downloaded.
 
@@ -531,140 +527,3 @@ In this task, you will use features within azure registry to tag and version dep
     ```bash
     docker image pull [LOGINSERVER]/content-web:v1
     ```
-
-## [Optional] Task 9: Setup CI Pipeline to Push Images
-
- > **Note**: If time permits, attempt this section of the task otherwise move to the next exercise.
-
-In this task, you will use YAML to define a GitHub Actions workflow that builds your Docker
-image and pushes it to your ACR instance automatically.
-
-1. In GitHub, return to the **Fabmedical** repository screen, and select the **Settings** tab.
-
-1. From the left menu, select **Secrets**.
-
-1. Select the **New repository secret** button.
-
-    ![Settings link, Secrets link, and New secret button are highlighted.](media/2020-08-24-21-45-42.png "GitHub Repository secrets")
-
-1. In the **New secret** form, enter the name `ACR_USERNAME` and for the value, paste in the Azure Container Registry **Username** that was copied previously. Select **Add secret**.
-
-    ![New secret screen with values are entered.](media/2020-08-24-21-48-54.png "New secret screen")
-
-1. Add another Secret, by entering the name `ACR_PASSWORD` and for the value, paste in the Azure Container Registry **Password** that was copied previously.
-
-    ![Secrets screen with both the ACR_USERNAME and ACR_PASSWORD secrets created.](media/2020-08-24-21-51-24.png "Secrets screen")
-    
-1. Go to Environment details click on **Service principle Credentials** copy **Application Id (Client Id)** , **client Secret** , **subscription Id** and **tenant Id**
-
-   ![](media/cna8.png)
-
-   - Replace the values that you copied in below Json
-   
-   ```json
-   {
-      "clientId": "<client id>",
-      "clientSecret": "<client secret>",
-      "subscriptionId": "<subscription id>",
-      "tenantId": "<tenant id>",
-      "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
-      "resourceManagerEndpointUrl": "https://management.azure.com/",
-      "activeDirectoryGraphResourceId": "https://graph.windows.net/",
-      "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
-      "galleryEndpointUrl": "https://gallery.azure.com/",
-      "managementEndpointUrl": "https://management.core.windows.net/"
-   }
-   ```
-   
-   - Copy the complete JSON output to your clipboard.
-
-1. In your repository settings, navigate to **Secrets** and create a new secret called `AZURE_CREDENTIALS`. Paste the copied value from your clipboard to the value of the secret and save it.
-
-   ![](media/cna6.png)
-
-1. In your Azure Command Shell session connected to the build agent VM, navigate to the `~/Fabmedical` directory:
-
-   ```bash
-   cd ~/Fabmedical
-   ```
-
-1. Before the GitHub Actions workflows can be setup, the `.github/workflows` directory needs to be created again and download workflow yml files. Do this by running the following commands:
-
-    ```
-    rm -rf ~/Fabmedical/.github/workflows/
-    mkdir ~/Fabmedical/.github/workflows/
-    cd ~/Fabmedical/.github/workflows/
-    wget http://bit.ly/hol-content-web -O content-web.yml
-    wget http://bit.ly/hol-content-api -O content-api.yml
-    ```
-
-1. Next create the workflow YAML file.
-   
-   ```dotnetcli
-    vi content-web.yml
-   ```
-
-   - Replace `[DeploymentID]` with your DeploymentID value given on Environment details page.
-   
-
-   ```
-   # Environment variables are defined so that they can be used throughout the job definitions.
-   env:
-     imageRepository: 'content-web'
-     resourceGroupName: 'fabmedical-[DeploymentID]'
-     clusterName: 'fabmedical-[DeploymentID]'
-     containerRegistryName: 'acr[DeploymentID]'
-     containerRegistry: 'acr[DeploymentID].azurecr.io'
-     dockerfilePath: './content-web'
-     tag: '${{ github.run_id  }}'
-   ```
- 
-   ![The content-web Action is shown with the Actions, content-web, and Run workflow links highlighted.](media/cna9.png "content-web workflow")
-
-
-1. Save the file and exit VI by pressing `<Esc>` then `:wq`.
-
-   **Note**: If **_ESC_** doesn't work press `ctrl+[` and then write **_:wq_** to save you changes and close the file.
-
-1. Save the pipeline YAML, then commit and push it to the Git repository:
-
-    ```bash
-    git add .
-    git commit -m "Added workflow YAML"
-    git push
-    ```
-
-1. In GitHub, return to the **Fabmedical** repository screen, and select the **Actions** tab.
-
-1. On the **Actions** page, select the **content-web** workflow.
-
-1. On the **content-web** workflow, select **Run workflow** and manually trigger the workflow to execute.
-
-    ![The content-web Action is shown with the Actions, content-web, and Run workflow links highlighted.](media/2020-08-25-15-38-06.png "content-web workflow")
-
-1. After a second, the newly triggered workflow execution will display in the list. Select the new **content-web** execution to view its status.
-
-1. Selecting the **Build and Push Docker Image** job of the workflow will display its execution status.
-
-    ![Build and Push Docker Image job.](media/2020-08-25-15-42-11.png "Build and Push Docker Image job")
-
-1. Next, setup the `content-api` workflow. 
-
-    ```
-    cd ~/Fabmedical/.github/workflows
-    vi content-api.yml
-    
-    ```
-
-1. Edit the `resourceGroupName` by replacing the `[DeploymentID]` with your ```DeploymentID``` value.
-
-    ![The screenshot shows the content-api.yml with the environment variables highlighted.](media/2020-08-25-15-59-56-1.png "content-api.yml environment variables highlighted")
-
-1. Save the file, then commit and push it to the Git repository:
-    ```bash
-    git add .
-    git commit -m "Updated workflow YAML"
-    git push
-    
-    ```
-1. Now navigate to the repositories in GitHub, select Actions, and then manually run the content-api workflow.
