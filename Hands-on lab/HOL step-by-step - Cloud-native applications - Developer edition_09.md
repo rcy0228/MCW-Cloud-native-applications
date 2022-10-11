@@ -307,6 +307,14 @@ This task will set up a Kubernetes Ingress using an [Nginx proxy server](https:/
     ```
 
    ![A screenshot of the fabmedical browser URL.](media/Ex4-Task5.9.png "fabmedical browser URL")
+   
+   >**Note**: If the URL doesn't work or you don't receive 404 error. Please run the below mentioned command and try accessing the URL.
+
+   ```bash
+   helm upgrade nginx-ingress ingress-nginx/ingress-nginx \
+    --namespace ingress-demo \
+    --set controller.service.externalTrafficPolicy=Local
+   ```
 
 9. Use helm to install `cert-manager`, a tool that can provision SSL certificates automatically from letsencrypt.org.
 
@@ -461,10 +469,17 @@ This task will set up a Kubernetes Ingress using an [Nginx proxy server](https:/
 
 19. Refresh the ingress endpoint in your browser. You should be able to visit the speakers and sessions pages and see all the content.
 
-2. Visit the API directly, by navigating to `/content-api/sessions` at the ingress endpoint.
+20. Visit the API directly, by navigating to `/content-api/sessions` at the ingress endpoint.
 
     ![A screenshot showing the output of the sessions content in the browser.](media_prod/finalop.png "Content api sessions")
+       >**Note**: If the URL doesn't work or you don't receive 404 error. Please run the below mentioned command and try accessing the URL.
 
-20. Test TLS termination by visiting both services again using `https`.
+   ```bash
+   helm upgrade nginx-ingress ingress-nginx/ingress-nginx \
+    --namespace ingress-demo \
+    --set controller.service.externalTrafficPolicy=Local
+   ```    
+
+21. Test TLS termination by visiting both services again using `https`.
 
     > **Note**: It can take between 5 and 30 minutes before the SSL site becomes available. This is due to the delay involved with provisioning a TLS cert from letsencrypt.
