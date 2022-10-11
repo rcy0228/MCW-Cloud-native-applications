@@ -474,11 +474,11 @@ This task will set up a Kubernetes Ingress using an [Nginx proxy server](https:/
     ![A screenshot showing the output of the sessions content in the browser.](media_prod/finalop.png "Content api sessions")
        >**Note**: If the URL doesn't work or you don't receive 404 error. Please run the below mentioned command and try accessing the URL.
 
-   ```bash
-   helm upgrade nginx-ingress ingress-nginx/ingress-nginx \
-    --namespace ingress-demo \
-    --set controller.service.externalTrafficPolicy=Local
-   ```    
+    ```bash
+    helm upgrade nginx-ingress ingress-nginx/ingress-nginx \
+     --namespace ingress-demo \
+     --set controller.service.externalTrafficPolicy=Local
+    ```    
 
 21. Test TLS termination by visiting both services again using `https`.
 
