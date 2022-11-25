@@ -105,7 +105,7 @@ In this task, you will restart containers and validate that the restart does not
 
    ![In the Workload view with the API deployment highlighted.](media_prod/cna28.png "API deployment is now healthy")
 
-2. Select the **YAML** navigation item and increase the required replica count to `4`. Use the same process as Exercise 4, Task 1.
+2. Select the **YAML** navigation item and increase the required replica count to `4`. Use the same process as Exercise 3, Task 1.
 
    ![In the left menu the Deployments item is selected. The API deployment is highlighted in the Deployments list box.](media/2021-03-26-17-30-28.png "API pod deployments")
 
