@@ -159,11 +159,10 @@ FabMedical has provided starter files for you. They have taken a copy of the web
    
    - Copy the complete JSON output to your clipboard.
 
+
 1. In GitHub, return to the **Fabmedical** repository screen, and select the **Settings** tab.
 
-1. From the left menu, select **Secrets**.
-
-1. Select the **New repository secret** button.
+1. From the left menu, select **Secrets (1)**. Under Security, expand **Secrets (1)** by clicking the drop-down and select **Actions (2)** blade from the left navigation bar. Select the **New repository secret (3)** button.
 
     ![Settings link, Secrets link, and New secret button are highlighted.](media/cna18.png "GitHub Repository secrets")
 
