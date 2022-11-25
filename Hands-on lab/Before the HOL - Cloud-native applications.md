@@ -83,9 +83,9 @@ In this task, you use `git` to copy the lab content to your cloud shell so that 
      
      ![Permissions GH](media_prod/github-devset.png)
 
-   - Now, click **Personal access tokens (1)** and select **Generate new token (2)** button on the right. Provide the GitHub password if prompted. 
-   
-     ![Permissions GH](media_prod/github-03.png)
+   - Now on the left sidebar, expand **Personal access tokens**, select **Tokens (classic) (1)**, click on **Generate new token (2)** and select **Generate new token (classic) (3)**. Provide the GitHub password if prompted. 
+  
+     ![Permissions GH](media_prod/BHOL-T3-S2.3.png)
      
 3. Select the scopes or permissions you would like to grant this token
 
